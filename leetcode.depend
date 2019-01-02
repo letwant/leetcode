@@ -1,3 +1,6 @@
 # depslib dependency file v1.0
 1546446088 source:/home/letwant/code/c++/leetcode/leetcode.cpp
 
+1546446211 source:/home/letwant/code/c++/leetcode/main.cpp
+	<iostream>
+
