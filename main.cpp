@@ -4,8 +4,7 @@ using namespace std;
 
 int main()
 {
-    int number1 = f1();
-    int number2 = f2(number1);
-    cout << number2 << endl;
+    Circle c(3);
+    cout<<"Area="<<c.Area()<<endl;
     return 0;
 }

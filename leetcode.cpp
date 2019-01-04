@@ -1,11 +1,16 @@
-//test
-double f1()
+#include "leetcode.h"
+
+Circle::Circle()
 {
-//do something here….
-return 0.01;
+    this->r=5.0;
 }
-double f2(double a)
+
+Circle::Circle(double R)
 {
-//do something here…
-return a * a;
+    this->r=R;
+}
+
+double Circle:: Area()
+{
+    return 3.14*r*r;
 }
