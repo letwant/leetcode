@@ -32,6 +32,8 @@ ListNode* removeNthFromEnd(ListNode* head, int n) {
 	p->next = head;
 	ListNode* front = p;
 	ListNode* behind = p;
+	// 为什么是n+1？因为如果是n的话，front和behind就是相连的，不好进行删除操作
+	// 假设n是1，则behind = front->next->next，只要删除behind->next即可
 	for (int i = 0; i < n + 1; i++)
 	{
 		behind = behind->next;
