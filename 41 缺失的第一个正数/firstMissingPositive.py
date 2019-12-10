@@ -21,3 +21,42 @@ def firstMissingPositive(nums: list) -> int:
 
 
 print(firstMissingPositive([1, 2, 0]))
+
+
+def firstMissingPositive1(nums: list) -> int:
+    length = len(nums)
+    if length == 0:
+        return 1
+    for i in range(length):
+        while nums[i] != i + 1:
+            # 小心[1, 1]这种例子会造成死循环，要特殊处理。（nums[i] != nums[nums[i] - 1）
+            if nums[i] <= 0 or nums[i] > length or nums[i] == nums[nums[i] - 1]:
+                break
+            tmp = nums[i] - 1
+            nums[i] = nums[tmp]
+            nums[tmp] = tmp + 1
+    for i in range(length):
+        if nums[i] != i + 1:
+            return i + 1
+    return length + 1
+
+
+print(firstMissingPositive1([2, -1, 3, 5, 0, 2]))
+
+
+def firstMissingPositive12(nums: list) -> int:
+    length = len(nums)
+    if length == 0:
+        return 1
+    for i in range(length):
+        while 1 <= nums[i] <= length and i != nums[i] - 1 and nums[i] != nums[nums[i] - 1]:
+            tmp = nums[i] - 1
+            nums[i] = nums[tmp]
+            nums[tmp] = tmp + 1
+    for i in range(length):
+        if i != nums[i] - 1:
+            return i + 1
+    return length + 1
+
+
+print(firstMissingPositive12([3, 4, -1, 1]))
